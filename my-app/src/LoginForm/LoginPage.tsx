@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LoginForm } from './LoginComponents';
+import { LoginButton, LoginForm, LoginInput } from './LoginComponents';
 
 
 const LoginPage  = () => {
@@ -9,19 +9,24 @@ const LoginPage  = () => {
         password: '',
     })
 
+
     return (
         <LoginForm>
             <label htmlFor="username">Username</label>
-            <input placeholder='Username' value={username} onChange={(event) => setCredentials({
+            <LoginInput
+            placeholder='Username' value={username} 
+            onChange={(event) => setCredentials({
                 username: event.target.value,
                 password
             })}/>
             <label htmlFor="password">Password</label>
-            <input placeholder='Password' value={password} onChange={(event) => setCredentials({
+            <LoginInput
+            placeholder='Password' value={password} 
+            onChange={(event) => setCredentials({
                 username,
                 password: event.target.value,
             })}/>
-            <button type ="submit">Login</button>
+            <LoginButton type ="submit">Login</LoginButton>
         </LoginForm>
     )
 }
